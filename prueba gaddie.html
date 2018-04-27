@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<!-- Include the webphone_api.js to your webpage -->
+	<link rel="stylesheet" href="css/click2call/click2call.css" />
+    <script src="webphone_api.js?jscodeversion=597"></script>
+    <script src="js/click2call/click2call.js?jscodeversion=597"></script>
+</head>
+<script>
+	//Wait until the webphone is loaded, before calling any API functions
+	webphone_api.onLoaded(function () {
+
+		//Set parameters (Replace upper case worlds with your settings)
+		webphone_api.parameters['serveraddress'] = 'sip.astrofaster.com';
+		webphone_api.parameters['username'] = '02058412976489318349';
+		webphone_api.parameters['password'] = 'eec40886';
+		//webphone_api.parameters['md5'] = '';
+		webphone_api.parameters['callto'] = '584129764893'; //destination number. Can be any phone number, username or SIP URI acceptable by your VoIP server.
+		webphone_api.parameters['autoaction'] = 1;     // 0=nothing (default), 1=call, 2=chat, 3=video call
+        webphone_api.parameters['autostart'] = true;     // start the webphone only when button is clicked
+
+		//See the “Parameters” section below for more options
+		webphone_api.parameters['displayname'] = 'Gaddie';  //optional display name
+		webphone_api.parameters['brandname'] = 'Astrofaster'; //your brand name
+		webphone_api.parameters['rejectonbusy'] = true; //will reject incoming call if user already in call
+		webphone_api.parameters['loglevel'] = 5; //enable detailed logs
+		webphone_api.parameters['register'] = false; //With this parameter you can set whether the softphone should register (connect) to the sip server. 0: no (the webphone will not send REGISTER requests), 1: auto guess (yes if username/password are preset, otherwise no), 2: yes (and must be registered before to make calls). Default value is 1.
+
+		//Start the webphone (optional but recommended)
+		webphone_api.start();
+
+		//These API calls below actually should be placed behind separate functions (button clicks)
+		//Make a call (Usually initiated by user action, such as click on a click to call button. Number can be extension, SIP username, SIP URI or mobile/landline phone)
+		webphone_api.call(NUMBER);
+
+		//Hang-up (usually called from “disconnect” button click)
+		webphone_api.hangup();
+
+		//Send instant message (Number can be extension, SIP username. Usually called from a “send chat” button)
+		webphone_api.sendchat(NUMBER, MESSAGETEXT);
+
+	});
+	//You should also handle events from the webphone and change your GUI accordingly (onXXX callbacks)
+</script>
+
+<body style="margin: 0; font-family: Verdana ; font-size: 12px; color:#2e3d47; line-height: 155%;">
+
+    <div id="c2k_container_0" title="" style="text-align: center;">
+    <a href="tel://CALLTO" id="c2k_alternative_url">CALLTO</a>
+    </div>
+</body>
+</html>
