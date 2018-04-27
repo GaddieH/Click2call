@@ -13,16 +13,16 @@
 
 		//Set parameters (Replace upper case worlds with your settings)
 		webphone_api.parameters['serveraddress'] = 'sip.astrofaster.com';
-		webphone_api.parameters['username'] = '02058412976489318349';
-		webphone_api.parameters['password'] = 'eec40886';
+		webphone_api.parameters['username'] = '';
+		webphone_api.parameters['password'] = '';
 		//webphone_api.parameters['md5'] = '';
-		webphone_api.parameters['callto'] = '584129764893'; //destination number. Can be any phone number, username or SIP URI acceptable by your VoIP server.
+		webphone_api.parameters['callto'] = ''; //destination number. Can be any phone number, username or SIP URI acceptable by your VoIP server.
 		webphone_api.parameters['autoaction'] = 1;     // 0=nothing (default), 1=call, 2=chat, 3=video call
         webphone_api.parameters['autostart'] = true;     // start the webphone only when button is clicked
 
 		//See the “Parameters” section below for more options
-		webphone_api.parameters['displayname'] = 'Gaddie';  //optional display name
-		webphone_api.parameters['brandname'] = 'Astrofaster'; //your brand name
+		webphone_api.parameters['displayname'] = '';  //optional display name
+		webphone_api.parameters['brandname'] = ''; //your brand name
 		webphone_api.parameters['rejectonbusy'] = true; //will reject incoming call if user already in call
 		webphone_api.parameters['loglevel'] = 5; //enable detailed logs
 		webphone_api.parameters['register'] = false; //With this parameter you can set whether the softphone should register (connect) to the sip server. 0: no (the webphone will not send REGISTER requests), 1: auto guess (yes if username/password are preset, otherwise no), 2: yes (and must be registered before to make calls). Default value is 1.
